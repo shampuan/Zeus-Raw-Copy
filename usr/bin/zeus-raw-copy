@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 /usr/share/zeus-raw-copy/zeus_raw_copy.py

@@ -1,0 +1,219 @@
+GNU GENEL KAMU LİSANSI
+Sürüm 3, 29 Haziran 2007
+
+Telif Hakkı © 2007 Free Software Foundation, Inc. < https://fsf.org/ >
+
+Bu lisans belgesinin aynen kopyalanması ve dağıtılması herkese serbesttir; ancak değiştirilmesi yasaktır.
+
+Önsöz
+GNU Genel Kamu Lisansı, yazılım ve diğer türdeki eserler için özgür, copyleft bir lisanstır.
+
+Çoğu yazılım ve diğer pratik çalışmalar için lisanslar, çalışmaları paylaşma ve değiştirme özgürlüğünüzü elinizden almak için tasarlanmıştır. Buna karşılık, GNU Genel Kamu Lisansı, bir programın tüm sürümlerini paylaşma ve değiştirme özgürlüğünüzü garanti altına almak için tasarlanmıştır; böylece tüm kullanıcıları için özgür yazılım olarak kalır. Biz, Özgür Yazılım Vakfı, yazılımlarımızın çoğu için GNU Genel Kamu Lisansını kullanırız; bu, yazarları tarafından bu şekilde yayımlanan diğer tüm çalışmalar için de geçerlidir. Bunu programlarınıza da uygulayabilirsiniz.
+
+Özgür yazılımdan bahsettiğimizde, fiyattan değil özgürlükten bahsediyoruz. Genel Kamu Lisanslarımız, özgür yazılımların kopyalarını dağıtma özgürlüğüne sahip olmanızı (ve isterseniz ücretlendirmenizi), kaynak kodunu almanızı veya isterseniz alabilmenizi, yazılımı değiştirebilmenizi veya parçalarını yeni özgür programlarda kullanabilmenizi ve bunları yapabileceğinizi bilmenizi sağlamak için tasarlanmıştır.
+
+Haklarınızı korumak için başkalarının sizden bu hakları esirgemesini veya haklarınızı teslim etmenizi istemesini engellememiz gerekir. Bu nedenle, yazılımın kopyalarını dağıtırsanız veya değiştirirseniz belirli sorumluluklarınız vardır: başkalarının özgürlüğüne saygı gösterme sorumlulukları.
+
+Örneğin, böyle bir programın kopyalarını ücretsiz veya ücretli olarak dağıtırsanız, alıcılara sizin aldığınız özgürlüklerin aynısını vermelisiniz. Onların da kaynak kodunu aldıklarından veya alabildiklerinden emin olmalısınız. Ve haklarını bilmeleri için bu şartları onlara göstermelisiniz.
+
+GNU GPL kullanan geliştiriciler, haklarınızı iki adımda korurlar: (1) yazılım üzerinde telif hakkı iddia ederler ve (2) size yazılımı kopyalamanız, dağıtmanız ve/veya değiştirmeniz için yasal izin veren bu Lisansı sunarlar.
+
+Geliştiricilerin ve yazarların korunması için GPL, bu özgür yazılım için hiçbir garanti olmadığını açıkça belirtir. Hem kullanıcılar hem de yazarlar için GPL, değiştirilmiş sürümlerin değiştirilmiş olarak işaretlenmesini gerektirir, böylece sorunları yanlışlıkla önceki sürümlerin yazarlarına atfedilmez.
+
+Bazı cihazlar, üreticinin izin verdiği ölçüde, kullanıcıların içlerindeki yazılımın değiştirilmiş sürümlerini yüklemesine veya çalıştırmasına izin vermeyecek şekilde tasarlanmıştır. Bu durum, kullanıcıların yazılımı değiştirme özgürlüğünü koruma amacıyla temelde bağdaşmaz. Bu tür suistimallerin sistematik bir örüntüsü, bireylerin kullanımına yönelik ürünler alanında gerçekleşmektedir ve bu da tam olarak en kabul edilemez noktadır. Bu nedenle, GPL'nin bu sürümünü, bu ürünler için uygulamayı yasaklayacak şekilde tasarladık. Bu tür sorunlar diğer alanlarda önemli ölçüde ortaya çıkarsa, kullanıcıların özgürlüğünü korumak için gerektiğinde, bu hükmü GPL'nin gelecekteki sürümlerinde bu alanlara da genişletmeye hazırız.
+
+Son olarak, her program yazılım patentleri tarafından sürekli olarak tehdit altındadır. Devletler, patentlerin genel amaçlı bilgisayarlarda yazılım geliştirme ve kullanımını kısıtlamasına izin vermemelidir; ancak bunu yapan ülkelerde, özgür bir programa uygulanan patentlerin onu fiilen mülkiyet hakkı kapsamına sokabileceği özel tehlikesinden kaçınmak istiyoruz. Bunu önlemek için GPL, patentlerin programı özgür olmayan hale getirmek için kullanılamayacağını garanti eder.
+
+Kopyalama, dağıtım ve değişiklik yapılmasına ilişkin kesin hüküm ve koşullar aşağıdadır.
+
+ŞARTLAR VE KOŞULLAR
+0. Tanımlar.
+“Bu Lisans” GNU Genel Kamu Lisansı’nın 3. sürümünü ifade eder.
+
+“Telif hakkı” aynı zamanda yarı iletken maskeler gibi diğer türdeki eserlere uygulanan telif hakkı benzeri yasaları da ifade eder.
+
+"Program", bu Lisans kapsamında lisanslanan telif hakkına konu olabilecek tüm çalışmaları ifade eder. Her lisans sahibine "siz" denir. "Lisans sahipleri" ve "alıcılar" bireyler veya kuruluşlar olabilir.
+
+Bir eseri "değiştirmek", eserin tamamını veya bir kısmını, tam bir kopyasını oluşturmak dışında, telif hakkı izni gerektiren bir şekilde kopyalamak veya uyarlamak anlamına gelir. Ortaya çıkan esere, önceki eserin "değiştirilmiş versiyonu" veya önceki esere "dayalı" eser denir.
+
+“Kapsanan eser”, değiştirilmemiş Program veya Programa dayalı bir eser anlamına gelir.
+
+Bir eseri "yaymak", izin almadan, geçerli telif hakkı yasası uyarınca sizi doğrudan veya ikincil olarak ihlalden sorumlu tutacak herhangi bir şey yapmak anlamına gelir; ancak onu bir bilgisayarda yürütmek veya özel bir kopyasını değiştirmek hariç. Yayma, kopyalamayı, dağıtmayı (değiştirerek veya değiştirmeden), kamuya açık hale getirmeyi ve bazı ülkelerde diğer faaliyetleri de içerir.
+
+Bir eseri "iletmek", diğer tarafların kopya oluşturmasını veya almasını sağlayan her türlü yayılım anlamına gelir. Bir kopyanın aktarımı olmadan, bir bilgisayar ağı aracılığıyla bir kullanıcıyla etkileşim kurmak, iletmek anlamına gelmez.
+
+Etkileşimli bir kullanıcı arayüzü, (1) uygun bir telif hakkı bildirimi görüntüleyen ve (2) kullanıcıya eser için hiçbir garanti olmadığını (garantiler sağlandığı ölçüde hariç), lisans sahiplerinin eseri bu Lisans kapsamında iletebileceğini ve bu Lisansın bir kopyasının nasıl görüntüleneceğini bildiren kullanışlı ve belirgin bir şekilde görünür bir özellik içerdiği ölçüde "Uygun Yasal Bildirimler" görüntüler. Arayüz, bir menü gibi bir kullanıcı komutları veya seçenekleri listesi sunuyorsa, listedeki belirgin bir öğe bu ölçütü karşılar.
+
+1. Kaynak Kodu.
+Bir eserin "kaynak kodu", eserde değişiklik yapmak için tercih edilen biçim anlamına gelir. "Nesne kodu", eserin kaynak kodu dışındaki herhangi bir biçimi anlamına gelir.
+
+"Standart Arayüz", tanınmış bir standart kuruluşu tarafından tanımlanmış resmi bir standart olan veya belirli bir programlama dili için belirtilen arayüzler söz konusu olduğunda, bu dilde çalışan geliştiriciler arasında yaygın olarak kullanılan bir arayüz anlamına gelir.
+
+Yürütülebilir bir çalışmanın “Sistem Kitaplıkları”, (a) bir Ana Bileşenin normal paketleme biçimine dahil edilen, ancak o Ana Bileşenin parçası olmayan ve (b) yalnızca çalışmanın o Ana Bileşenle birlikte kullanılmasını sağlamak veya bir uygulamanın kaynak kodu biçiminde kamuya açık olduğu bir Standart Arayüzü uygulamak için hizmet eden, çalışmanın bir bütünü dışında kalan her şeyi içerir. Bu bağlamda bir “Ana Bileşen”, yürütülebilir çalışmanın çalıştığı belirli işletim sisteminin (varsa) ana temel bileşeni (çekirdek, pencere sistemi vb.) veya çalışmayı üretmek için kullanılan bir derleyici veya onu çalıştırmak için kullanılan bir nesne kodu yorumlayıcısı anlamına gelir.
+
+Nesne kodu biçimindeki bir eser için "Karşılık Gelen Kaynak", nesne kodunu oluşturmak, kurmak ve (yürütülebilir bir eser için) çalıştırmak ve eseri değiştirmek için gereken tüm kaynak kodu anlamına gelir; bu etkinlikleri kontrol eden betikler de buna dahildir. Ancak, eserin Sistem Kitaplıkları'nı veya bu etkinlikleri gerçekleştirirken değiştirilmeden kullanılan ancak eserin bir parçası olmayan genel amaçlı araçları veya genel olarak erişilebilir ücretsiz programları içermez. Örneğin, Karşılık Gelen Kaynak, eserin kaynak dosyalarıyla ilişkili arayüz tanımlama dosyalarını ve eserin özel olarak gerektirmek üzere tasarlandığı paylaşımlı kitaplıklar ve dinamik olarak bağlı alt programların kaynak kodunu içerir; örneğin, bu alt programlar ile eserin diğer bölümleri arasında yakın veri iletişimi veya kontrol akışı gibi.
+
+İlgili Kaynak, kullanıcıların İlgili Kaynağın diğer bölümlerinden otomatik olarak yeniden üretebileceği hiçbir şeyi içermek zorunda değildir.
+
+Kaynak kod biçimindeki bir eserin Karşılık Gelen Kaynağı, aynı eserdir.
+
+2. Temel İzinler.
+Bu Lisans kapsamında verilen tüm haklar, Program üzerindeki telif hakkı süresi boyunca geçerlidir ve belirtilen koşullar karşılandığı takdirde geri alınamaz. Bu Lisans, değiştirilmemiş Programı çalıştırmanız için sınırsız izninizi açıkça teyit eder. Kapsam dahilindeki bir eserin çalıştırılmasından elde edilen çıktı, yalnızca içeriği göz önüne alındığında kapsam dahilinde bir eser teşkil ediyorsa bu Lisans kapsamındadır. Bu Lisans, telif hakkı yasalarının sağladığı makul kullanım veya diğer eşdeğer haklarınızı kabul eder.
+
+Lisansınız aksi halde yürürlükte kaldığı sürece, sizin iletmediğiniz kapsanan eserleri koşulsuz olarak yapabilir, çalıştırabilir ve yayabilirsiniz. Kapsamdaki eserleri, yalnızca sizin için değişiklikler yapmaları veya bu eserleri çalıştırmanız için size olanaklar sağlamaları amacıyla başkalarına iletebilirsiniz; ancak telif hakkını kontrol etmediğiniz tüm materyalleri iletme konusunda bu Lisansın şartlarına uymanız gerekir. Kapsamdaki eserleri sizin adınıza yapan veya çalıştıranlar, bunu yalnızca sizin adınıza, sizin yönetiminiz ve kontrolünüz altında, sizinle olan ilişkileri dışında telif hakkıyla korunan materyalinizin herhangi bir kopyasını yapmalarını yasaklayan şartlarla yapmalıdır.
+
+Başka herhangi bir koşul altında iletmeye yalnızca aşağıda belirtilen koşullar altında izin verilir. Alt lisanslamaya izin verilmez; 10. bölüm bunu gereksiz kılar.
+
+3. Kullanıcıların Yasal Haklarının Anti-Durdurma Yasasından Korunması.
+Hiçbir kapsam dahilindeki eser, 20 Aralık 1996 tarihinde kabul edilen WIPO telif hakkı anlaşmasının 11. maddesi kapsamındaki yükümlülükleri yerine getiren veya bu tür önlemlerin ihlal edilmesini yasaklayan veya kısıtlayan benzer yasalar uyarınca geçerli bir teknolojik önlemin parçası olarak kabul edilmeyecektir.
+
+Kapsanan bir eseri devrettiğinizde, bu Lisans kapsamındaki hakların kullanılması yoluyla teknolojik önlemlerin aşılmasını yasaklama yönündeki her türlü yasal yetkiden feragat edersiniz ve eserin kullanıcılarına karşı, sizin veya üçüncü tarafların teknolojik önlemlerin aşılmasını yasaklama yönündeki yasal haklarını uygulama amacıyla eserin çalışmasını veya değiştirilmesini sınırlama niyetinizi reddedersiniz.
+
+4. Kelimesi kelimesine kopyaların iletilmesi.
+Programın kaynak kodunun tam kopyalarını, her kopyada uygun bir telif hakkı bildirimini açıkça ve uygun bir şekilde yayınlamanız; bu Lisansın ve 7. madde uyarınca eklenen herhangi bir izin verilmeyen koşulun koda uygulandığını belirten tüm bildirimleri olduğu gibi korumanız; herhangi bir garanti bulunmadığına ilişkin tüm bildirimleri olduğu gibi korumanız ve tüm alıcılara Programla birlikte bu Lisansın bir kopyasını vermeniz koşuluyla, aldığınız şekliyle herhangi bir ortamda iletebilirsiniz.
+
+Taşıdığınız her kopya için herhangi bir bedel talep edebilir veya bedelsiz olarak satabilirsiniz ve ücret karşılığında destek veya garanti koruması sunabilirsiniz.
+
+5. Değiştirilmiş Kaynak Sürümlerinin İletimi.
+Programa veya Programdan üretmek için yapılan değişikliklere dayalı bir çalışmayı, 4. bölümdeki şartlar uyarınca kaynak kodu biçiminde, aşağıdaki koşulların tümünü de karşılamanız koşuluyla aktarabilirsiniz:
+
+a) Eserde, üzerinde değişiklik yaptığınızı belirten ve ilgili tarihi veren belirgin bir uyarı bulunmalıdır.
+b) Eser, bu Lisans ve 7. bölüm uyarınca eklenen koşullar uyarınca yayınlandığını belirten belirgin bildirimler taşımalıdır. Bu gereklilik, 4. bölümdeki “tüm bildirimlerin olduğu gibi tutulması” gerekliliğini değiştirir.
+c) Bu Lisans kapsamında, bir kopyasını ele geçiren herkese, tüm eseri bir bütün olarak lisanslamalısınız. Bu nedenle, bu Lisans, uygulanabilir bölüm 7 ek şartlarıyla birlikte, nasıl paketlendiklerine bakılmaksızın, eserin tamamına ve tüm parçalarına uygulanacaktır. Bu Lisans, eseri başka bir şekilde lisanslama izni vermez, ancak ayrı olarak aldıysanız, bu izni geçersiz kılmaz.
+d) Çalışmanın etkileşimli kullanıcı arayüzleri varsa, her birinde Uygun Yasal Bildirimler görüntülenmelidir; ancak Programın Uygun Yasal Bildirimleri görüntülemeyen etkileşimli arayüzleri varsa, çalışmanızın bunları görüntülemesini zorunlu kılmasına gerek yoktur.
+Kapsanan bir eserin, doğası gereği kapsanan eserin uzantıları olmayan ve daha büyük bir program oluşturmak üzere onunla birleştirilmeyen diğer ayrı ve bağımsız eserlerle derlenmesi, bir depolama veya dağıtım ortamının bir biriminde veya üzerinde, derleme ve bundan kaynaklanan telif hakkı, derlemenin kullanıcılarının erişimini veya yasal haklarını tek tek eserlerin izin verdiğinin ötesinde sınırlamak için kullanılmıyorsa, bir "toplam" olarak adlandırılır. Kapsanan bir eserin bir topluluğa dahil edilmesi, bu Lisansın topluluğa dahil olan diğer kısımlara uygulanmasına neden olmaz.
+
+6. Kaynak Dışı Formların İletimi.
+4. ve 5. bölümlerdeki şartlar uyarınca, kapsanan bir çalışmayı nesne kodu biçiminde iletebilirsiniz; ancak bu Lisansın şartları uyarınca makine tarafından okunabilir İlgili Kaynağı da aşağıdaki yollardan biriyle iletmeniz gerekir:
+
+a) Nesne kodunu, yazılım alışverişi için yaygın olarak kullanılan kalıcı bir fiziksel ortama sabitlenmiş Karşılık Gelen Kaynak eşliğinde, fiziksel bir üründe (fiziksel bir dağıtım ortamı dahil) iletin veya bu üründe somutlaştırın.
+b) En az üç yıl geçerli ve söz konusu ürün modeli için yedek parça veya müşteri desteği sunduğunuz sürece geçerli olan yazılı bir teklif eşliğinde, nesne kodunu fiziksel bir üründe (fiziksel bir dağıtım ortamı dahil) iletin veya nesne koduna sahip olan herkese (1) bu Lisans kapsamındaki üründeki tüm yazılımlar için Karşılık Gelen Kaynağın bir kopyasını, yazılım değişimi için geleneksel olarak kullanılan dayanıklı bir fiziksel ortamda, bu kaynağın fiziksel olarak iletilmesinin makul maliyetinden fazla olmayan bir fiyat karşılığında verin veya (2) Karşılık Gelen Kaynağı bir ağ sunucusundan ücretsiz olarak kopyalamak için erişim sağlayın.
+c) Nesne kodunun ayrı kopyalarını, İlgili Kaynağı sağlamaya yönelik yazılı teklifin bir kopyasıyla birlikte iletin. Bu alternatif, yalnızca ara sıra ve ticari olmayan amaçlarla ve yalnızca nesne kodunu böyle bir teklifle birlikte aldıysanız, 6b alt bölümüne uygun olarak kullanılabilir.
+d) Nesne kodunu, belirlenmiş bir yerden erişim sağlayarak (ücretsiz veya ücretli) iletin ve Karşılık Gelen Kaynağa aynı yerden aynı şekilde ve ek bir ücret ödemeden eşdeğer erişim sağlayın. Alıcıların Karşılık Gelen Kaynağı nesne koduyla birlikte kopyalamasını talep etmenize gerek yoktur. Nesne kodunun kopyalanacağı yer bir ağ sunucusuysa, Karşılık Gelen Kaynak, nesne kodunun yanında Karşılık Gelen Kaynağın nerede bulunacağını belirten açık talimatlar bulundurmanız koşuluyla, eşdeğer kopyalama olanaklarını destekleyen farklı bir sunucuda (sizin veya üçüncü bir tarafın işlettiği) bulunabilir. Karşılık Gelen Kaynağı hangi sunucunun barındırdığından bağımsız olarak, bu gereksinimleri karşılamak için ihtiyaç duyulduğu sürece kullanılabilir olmasını sağlamakla yükümlüsünüz.
+e) Nesne kodunun ve Eserin İlgili Kaynağının 6d alt maddesi uyarınca genel kamuoyuna ücretsiz olarak sunulduğu yer hakkında diğer eşleri bilgilendirmeniz kaydıyla, nesne kodunu eşler arası iletim kullanarak iletin.
+Kaynak kodu, Sistem Kütüphanesi olarak Karşılık Gelen Kaynak'tan hariç tutulan nesne kodunun ayrılabilir bir bölümünün, nesne kodu çalışmasının iletilmesinde dahil edilmesi gerekmez.
+
+"Kullanıcı Ürünü", (1) normalde kişisel, ailevi veya evsel amaçlarla kullanılan herhangi bir somut kişisel mülk anlamına gelen bir "tüketici ürünü" veya (2) bir konuta dahil edilmek üzere tasarlanmış veya satılan herhangi bir şeydir. Bir ürünün tüketici ürünü olup olmadığının belirlenmesinde, şüpheli durumlar teminat lehine çözülecektir. Belirli bir kullanıcı tarafından alınan belirli bir ürün için "normal kullanım", belirli kullanıcının statüsünden veya belirli kullanıcının ürünü fiilen kullanma, kullanma beklentisinden veya kullanmasının beklenmesinden bağımsız olarak, o ürün sınıfının tipik veya yaygın kullanımını ifade eder. Bir ürün, önemli ticari, endüstriyel veya tüketici dışı kullanımlara sahip olup olmadığına bakılmaksızın, bu kullanımlar ürünün tek önemli kullanım biçimini temsil etmediği sürece bir tüketici ürünüdür.
+
+Bir Kullanıcı Ürünü için "Kurulum Bilgileri", kapsanan bir çalışmanın değiştirilmiş sürümlerini, İlgili Kaynağının değiştirilmiş bir sürümünden söz konusu Kullanıcı Ürününe yüklemek ve çalıştırmak için gereken tüm yöntemler, prosedürler, yetkilendirme anahtarları veya diğer bilgiler anlamına gelir. Bu bilgiler, yalnızca değişiklik yapılmış olması nedeniyle, değiştirilmiş nesne kodunun sürekli çalışmasının hiçbir durumda engellenmemesini veya engellenmemesini sağlamaya yeterli olmalıdır.
+
+Bu bölüm kapsamında bir nesne kodu çalışmasını bir Kullanıcı Ürünü'nde, Kullanıcı Ürünü ile birlikte veya Kullanıcı Ürünü'nde kullanılmak üzere iletirseniz ve bu iletim, Kullanıcı Ürünü'nün mülkiyet ve kullanım hakkının alıcıya süresiz veya belirli bir süre için devredildiği bir işlemin parçası olarak gerçekleşirse (işlemin nasıl nitelendirildiğine bakılmaksızın), bu bölüm kapsamında iletilen İlgili Kaynak, Kurulum Bilgileri ile birlikte olmalıdır. Ancak, ne siz ne de herhangi bir üçüncü taraf Kullanıcı Ürünü'ne değiştirilmiş nesne kodu yükleme olanağına sahip değilse (örneğin, çalışma ROM'a yüklenmişse) bu gereklilik geçerli değildir.
+
+Kurulum Bilgileri sağlama zorunluluğu, alıcı tarafından değiştirilen veya kurulan bir eser veya değiştirildiği veya kurulduğu Kullanıcı Ürünü için destek hizmeti, garanti veya güncelleme sağlamaya devam etme zorunluluğunu içermez. Değişikliğin kendisi ağın işleyişini önemli ve olumsuz yönde etkilediğinde veya ağ genelindeki iletişim kurallarını ve protokollerini ihlal ettiğinde, ağa erişim reddedilebilir.
+
+Bu bölüm uyarınca iletilen İlgili Kaynak ve sağlanan Kurulum Bilgileri, kamuya açık bir biçimde belgelenmiş bir biçimde olmalı (ve kaynak kod biçiminde kamuya açık bir uygulamaya sahip olmalı) ve paketin açılması, okunması veya kopyalanması için özel bir parola veya anahtar gerektirmemelidir.
+
+7. Ek Şartlar.
+"Ek izinler", bu Lisansın şartlarını, bir veya daha fazla koşulundan istisnalar yaparak tamamlayan şartlardır. Programın tamamına uygulanabilen ek izinler, geçerli yasalar uyarınca geçerli oldukları ölçüde, bu Lisansa dahil edilmiş gibi ele alınacaktır. Ek izinler yalnızca Programın bir kısmına uygulanıyorsa, bu kısım bu izinler uyarınca ayrı olarak kullanılabilir, ancak Programın tamamı, ek izinlere bakılmaksızın bu Lisans tarafından yönetilmeye devam eder.
+
+Kapsam dahilindeki bir eserin kopyasını ilettiğinizde, isteğe bağlı olarak söz konusu kopyadan veya herhangi bir bölümünden ek izinleri kaldırabilirsiniz. (Ek izinler, eseri değiştirdiğinizde belirli durumlarda kendiliğinden kaldırılmasını gerektirecek şekilde yazılabilir.) Kapsam dahilindeki bir esere sizin tarafınızdan eklenen ve uygun telif hakkı iznine sahip olduğunuz veya verebileceğiniz materyale ek izinler koyabilirsiniz.
+
+Bu Lisansın diğer hükümlerine bakılmaksızın, kapsanan bir çalışmaya eklediğiniz materyal için (söz konusu materyalin telif hakkı sahipleri tarafından yetkilendirildiğiniz takdirde) bu Lisansın koşullarını şu koşullarla tamamlayabilirsiniz:
+
+a) Bu Lisansın 15. ve 16. bölümlerindeki hükümlerden farklı olarak garantiyi reddetmek veya sorumluluğu sınırlamak; veya
+b) Söz konusu materyalde veya onu içeren eserler tarafından görüntülenen Uygun Yasal Bildirimlerde belirtilen makul yasal bildirimlerin veya yazar atıflarının korunmasını talep etmek; veya
+c) Söz konusu materyalin kökeninin yanlış tanıtılmasını yasaklamak veya söz konusu materyalin değiştirilmiş versiyonlarının orijinal versiyondan farklı olarak makul şekillerde işaretlenmesini şart koşmak; veya
+d) Lisans verenlerin veya materyalin yazarlarının isimlerinin tanıtım amaçlı kullanımının sınırlandırılması; veya
+e) Bazı ticari adların, ticari markaların veya hizmet markalarının kullanımı için ticari marka hukuku kapsamında hak verilmesini reddetmek; veya
+f) Söz konusu materyali (veya değiştirilmiş versiyonlarını) sözleşmesel sorumluluk varsayımlarıyla alıcıya ileten herhangi bir kişi tarafından, bu sözleşmesel varsayımların doğrudan söz konusu lisans verenlere ve yazarlara yüklediği her türlü sorumluluk için lisans verenlerin ve yazarların tazmin edilmesini talep etmek.
+Diğer tüm izin verilmeyen ek koşullar, 10. bölüm kapsamında "ek kısıtlamalar" olarak kabul edilir. Aldığınız Program veya herhangi bir bölümü, bu Lisans kapsamında olduğunu belirten bir bildirim ve ek kısıtlama içeren bir hüküm içeriyorsa, bu hükmü kaldırabilirsiniz. Bir lisans belgesi ek bir kısıtlama içeriyor ancak bu Lisans kapsamında yeniden lisanslamaya veya iletmeye izin veriyorsa, söz konusu ek kısıtlamanın söz konusu yeniden lisanslama veya iletmeyi geçersiz kılması koşuluyla, kapsam dahilindeki bir esere, söz konusu lisans belgesinin hükümlerine tabi olan bir materyal ekleyebilirsiniz.
+
+Bu bölüm uyarınca kapsanan bir çalışmaya terimler eklerseniz, ilgili kaynak dosyalarına, söz konusu dosyalara uygulanan ek terimlerin bir beyanını veya geçerli terimlerin nerede bulunabileceğini gösteren bir bildirimi yerleştirmelisiniz.
+
+İzin verici veya izin vermeyen ek koşullar, ayrı bir yazılı lisans şeklinde belirtilebilir veya istisnalar olarak belirtilebilir; yukarıdaki şartlar her iki durumda da geçerlidir.
+
+8. Fesih.
+Bu Lisans kapsamında açıkça belirtilen durumlar haricinde, kapsam dahilindeki bir eseri yayamaz veya değiştiremezsiniz. Aksi yöndeki herhangi bir yayma veya değiştirme girişimi geçersizdir ve bu Lisans kapsamındaki haklarınızı (11. bölümün üçüncü paragrafı kapsamında verilen patent lisansları dahil) otomatik olarak sona erdirir.
+
+Ancak, bu Lisansın tüm ihlallerini durdurursanız, belirli bir telif hakkı sahibinden aldığınız lisans (a) telif hakkı sahibi lisansınızı açıkça ve kesin olarak feshedene kadar geçici olarak ve (b) telif hakkı sahibi sizi ihlalden fesih tarihinden itibaren 60 gün içinde makul bir yolla haberdar etmezse kalıcı olarak yeniden yürürlüğe girer.
+
+Ayrıca, telif hakkı sahibi sizi makul bir yolla ihlal konusunda bilgilendirirse, bu Lisansın (herhangi bir eser için) söz konusu telif hakkı sahibinden ilk kez ihlal edildiğine dair bildirim alırsanız ve bildirimi aldıktan sonraki 30 gün içinde ihlali düzeltirseniz, belirli bir telif hakkı sahibinden aldığınız lisans kalıcı olarak iade edilir.
+
+Bu bölüm kapsamındaki haklarınızın sona ermesi, bu Lisans kapsamında sizden kopya veya hak alan tarafların lisanslarını sona erdirmez. Haklarınız sona erdirilmiş ve kalıcı olarak iade edilmemişse, 10. bölüm kapsamında aynı materyal için yeni lisans almaya hak kazanamazsınız.
+
+9. Kopyaların Alınması İçin Kabul Gerekmez.
+Programın bir kopyasını almak veya çalıştırmak için bu Lisansı kabul etmeniz gerekmez. Kapsam dahilindeki bir eserin, yalnızca eşler arası iletim kullanılarak bir kopyasının alınması sonucunda ortaya çıkan ikincil yayılımı da aynı şekilde kabul gerektirmez. Ancak, bu Lisans dışında hiçbir şey, kapsam dahilindeki herhangi bir eseri yayma veya değiştirme izni vermez. Bu Lisansı kabul etmemeniz durumunda, bu eylemler telif hakkını ihlal eder. Dolayısıyla, kapsam dahilindeki bir eseri değiştirerek veya yayarak, bu Lisansı kabul ettiğinizi beyan etmiş olursunuz.
+
+10. Alt Alıcıların Otomatik Lisanslanması.
+Kapsam dahilindeki bir eseri her aktardığınızda, alıcı, bu Lisans'a tabi olarak, söz konusu eseri çalıştırmak, değiştirmek ve yaymak için orijinal lisans verenlerden otomatik olarak bir lisans alır. Üçüncü tarafların bu Lisans'a uymasını sağlamaktan siz sorumlu değilsiniz.
+
+"Tüzel kişi işlemi", bir kuruluşun kontrolünün veya önemli ölçüde tüm varlıklarının devredilmesi, bir kuruluşun bölünmesi veya birleştirilmesi işlemidir. Kapsam dahilindeki bir eserin yayılması bir tüzel kişi işlemi sonucunda gerçekleşirse, söz konusu işlemin bir kopyasını alan tarafların her biri, ilgili tarafın önceki paragraf uyarınca ilgili kişinin sahip olduğu veya verebileceği eser lisanslarının yanı sıra, ilgili kişinin sahip olması veya makul çabalarla elde edebilmesi durumunda, ilgili kişiden eserin Karşılık Gelen Kaynağına sahip olma hakkını da alır.
+
+Bu Lisans kapsamında verilen veya onaylanan hakların kullanımına herhangi bir ek kısıtlama getiremezsiniz. Örneğin, bu Lisans kapsamında verilen hakların kullanımı için lisans ücreti, telif ücreti veya başka bir ücret talep edemezsiniz ve Program'ı veya herhangi bir bölümünü yaparak, kullanarak, satarak, satışa sunarak veya ithal ederek herhangi bir patent talebinin ihlal edildiğini iddia ederek dava açamazsınız (bir davada çapraz dava veya karşı dava dahil).
+
+11. Patentler.
+"Katkıda bulunan", bu Lisans kapsamında Programın veya Programın dayandığı bir eserin kullanımına izin veren telif hakkı sahibidir. Bu şekilde lisanslanan esere, katkı sağlayanın "katkıda bulunan sürümü" denir.
+
+Bir katılımcının "temel patent talepleri", katılımcının sahip olduğu veya kontrol ettiği, ister halihazırda edinilmiş ister ileride edinilecek olsun, bu Lisans'ın izin verdiği bir şekilde katılımcı sürümünün oluşturulması, kullanılması veya satılması yoluyla ihlal edilebilecek tüm patent talepleridir; ancak yalnızca katılımcı sürümünün daha fazla değiştirilmesi sonucunda ihlal edilebilecek talepleri kapsamaz. Bu tanımın amaçları doğrultusunda "kontrol", bu Lisans'ın gerekliliklerine uygun bir şekilde patent alt lisansları verme hakkını da içerir.
+
+Her bir katkıda bulunan, katkıda bulunanın temel patent talepleri kapsamında, katkıda bulunanın sürümünün içeriğini oluşturma, kullanma, satma, satışa sunma, içe aktarma ve başka şekillerde çalıştırma, değiştirme ve yayma konusunda size münhasır olmayan, dünya çapında, telifsiz bir patent lisansı verir.
+
+Aşağıdaki üç paragrafta, "patent lisansı", nasıl adlandırılırsa adlandırılsın, bir patenti uygulamamaya dair açık bir anlaşma veya taahhüttür (örneğin, bir patenti uygulamaya dair açık bir izin veya patent ihlali nedeniyle dava açmama sözleşmesi). Bir tarafa böyle bir patent lisansı "vermek", söz konusu tarafa karşı patenti uygulamamaya dair böyle bir anlaşma veya taahhütte bulunmak anlamına gelir.
+
+Kapsamlı bir çalışmayı, bilerek bir patent lisansına güvenerek iletirseniz ve çalışmanın İlgili Kaynağı, bu Lisansın şartları uyarınca, kamuya açık bir ağ sunucusu veya kolayca erişilebilir başka bir araç aracılığıyla hiç kimsenin ücretsiz olarak kopyalayabilmesi için erişilebilir değilse, (1) İlgili Kaynağın erişilebilir olmasını sağlamalı veya (2) bu belirli çalışma için patent lisansının sağladığı faydadan kendinizi mahrum bırakmalı veya (3) bu Lisansın gereklilikleriyle tutarlı bir şekilde patent lisansını alt alıcılara genişletmeyi sağlamalısınız. "Bilerek güvenmek", patent lisansı olmasa, kapsanan çalışmayı bir ülkede iletmenizin veya alıcınızın kapsanan çalışmayı bir ülkede kullanmasının, geçerli olduğuna inanmak için nedeniniz olan, o ülkedeki bir veya daha fazla tanımlanabilir patenti ihlal edeceğine dair fiili bilginiz olduğu anlamına gelir.
+
+Tek bir işlem veya düzenleme uyarınca veya bununla bağlantılı olarak, kapsanan bir eseri devrederseniz veya devrettirerek yayarsanız ve kapsanan eseri alan bazı taraflara, kapsanan eserin belirli bir kopyasını kullanma, yayma, değiştirme veya devretme yetkisi veren bir patent lisansı verirseniz, verdiğiniz patent lisansı otomatik olarak kapsanan eserin ve buna dayalı eserlerin tüm alıcılarına genişletilir.
+
+Bir patent lisansı, bu Lisans kapsamında özel olarak verilmiş bir veya daha fazla hakkı kapsamına dahil etmiyorsa, bunların kullanılmasını yasaklıyorsa veya kullanılmamasına bağlıyorsa "ayrımcı"dır. Yazılım dağıtımı işinde olan bir üçüncü tarafla, eseri iletme faaliyetinizin kapsamına göre üçüncü tarafa ödeme yaptığınız ve üçüncü tarafın, sizden kapsam dahilindeki eseri alacak olan herhangi bir tarafa (a) sizin tarafınızdan iletilen kapsam dahilindeki eserin kopyalarıyla (veya bu kopyalardan oluşturulan kopyalarla) veya (b) öncelikli olarak kapsam dahilindeki eseri içeren belirli ürünler veya derlemelerle bağlantılı olarak ayrımcı bir patent lisansı verdiği bir anlaşmanın tarafıysanız, kapsam dahilindeki bir eseri devredemezsiniz; ancak bu anlaşmayı 28 Mart 2007'den önce yapmış olmanız veya söz konusu patent lisansı verilmiş olması durumunda bu durum geçerli değildir.
+
+Bu Lisans'taki hiçbir hüküm, geçerli patent yasası uyarınca sizin için geçerli olabilecek herhangi bir zımni lisansı veya ihlale karşı diğer savunmaları hariç tutacak veya sınırlayacak şekilde yorumlanmayacaktır.
+
+12. Başkalarının özgürlüğünden vazgeçilmemelidir.
+Size (mahkeme kararı, sözleşme veya başka bir şekilde) bu Lisans'ın koşullarıyla çelişen koşullar dayatılırsa, bu sizi bu Lisans'ın koşullarından muaf tutmaz. Kapsam dahilindeki bir eseri, bu Lisans kapsamındaki yükümlülüklerinizi ve diğer ilgili yükümlülüklerinizi aynı anda yerine getirecek şekilde devredemezseniz, sonuç olarak onu hiç devredemezsiniz. Örneğin, Programı ilettiğiniz kişilerden daha fazla iletim için telif ücreti almanızı gerektiren koşulları kabul ederseniz, hem bu koşulları hem de bu Lisans'ı yerine getirmenin tek yolu, Programı iletmekten tamamen kaçınmaktır.
+
+13. GNU Affero Genel Kamu Lisansı ile kullanın.
+Bu Lisans'ın diğer hükümlerine bakılmaksızın, kapsanan herhangi bir eseri, GNU Affero Genel Kamu Lisansı'nın 3. sürümü kapsamında lisanslanmış bir eserle tek bir birleşik eserde birleştirme veya bağlama ve ortaya çıkan eseri aktarma izniniz bulunmaktadır. Bu Lisans'ın şartları, kapsanan eser olan kısım için geçerli olmaya devam edecek, ancak GNU Affero Genel Kamu Lisansı'nın 13. bölümünün ağ üzerinden etkileşime ilişkin özel gereklilikleri, birleştirme işlemi için geçerli olacaktır.
+
+14. Bu Lisansın Gözden Geçirilmiş Sürümleri.
+Özgür Yazılım Vakfı, zaman zaman GNU Genel Kamu Lisansı'nın revize edilmiş ve/veya yeni sürümlerini yayınlayabilir. Bu yeni sürümler, mevcut sürüme benzer bir içerik taşıyacak, ancak yeni sorunları veya endişeleri gidermek için ayrıntılarda farklılık gösterebilir.
+
+Her sürüme ayırt edici bir sürüm numarası verilir. Program, GNU Genel Kamu Lisansı'nın belirli bir numaralı sürümünün veya "daha sonraki herhangi bir sürümünün" geçerli olduğunu belirtiyorsa, söz konusu numaralı sürümün veya Özgür Yazılım Vakfı tarafından yayınlanan herhangi bir sonraki sürümün hüküm ve koşullarını takip etme seçeneğiniz vardır. Program, GNU Genel Kamu Lisansı'nın bir sürüm numarasını belirtmiyorsa, Özgür Yazılım Vakfı tarafından yayınlanan herhangi bir sürümü seçebilirsiniz.
+
+Program, bir vekilin GNU Genel Kamu Lisansı'nın hangi gelecekteki sürümlerinin kullanılabileceğine karar verebileceğini belirtiyorsa, bu vekilin bir sürümü kabul ettiğine dair kamuya açık beyanı, Program için o sürümü seçmenize kalıcı olarak yetki verir.
+
+Daha sonraki lisans sürümleri size ek veya farklı izinler verebilir. Ancak, daha sonraki bir sürümü takip etmeyi seçmeniz sonucunda hiçbir yazar veya telif hakkı sahibine ek yükümlülük getirilmez.
+
+15. Garanti Reddi.
+YÜRÜRLÜKTEKİ YASALARIN İZİN VERDİĞİ ÖLÇÜDE, PROGRAM İÇİN HİÇBİR GARANTİ YOKTUR. AKSİ YAZILI OLARAK BELİRTİLMEDİĞİ SÜRECE TELİF HAKKI SAHİPLERİ VE/VEYA DİĞER TARAFLAR, TİCARİ ELVERİŞLİLİK VE BELİRLİ BİR AMACA UYGUNLUK GARANTİLERİ DAHİL ANCAK BUNLARLA SINIRLI OLMAMAK ÜZERE, AÇIK VEYA ZIMNİ HİÇBİR GARANTİ VERMEKSİZİN PROGRAMI "OLDUĞU GİBİ" SAĞLAR. PROGRAMIN KALİTESİ VE PERFORMANSIYLA İLGİLİ TÜM RİSK SİZE AİTTİR. PROGRAMIN KUSURLU OLDUĞU ORTAYA ÇIKARSA, GEREKLİ TÜM SERVİS, ONARIM VEYA DÜZELTME MALİYETLERİNİ SİZ ÜSTLENİRSİNİZ.
+
+16. Sorumluluğun Sınırlandırılması.
+UYGULANABİLİR YASA TARAFINDAN GEREKTİRİLMEDİĞİ VEYA YAZILI OLARAK ANLAŞILMADIĞI TAKDİRDE HİÇBİR DURUMDA, HERHANGİ BİR TELİF HAKKI SAHİBİ VEYA PROGRAMI YUKARIDA İZİN VERİLEN ŞEKİLDE DEĞİŞTİREN VE/VEYA İLETEN HERHANGİ BİR TARAF, PROGRAMIN KULLANIMINDAN VEYA KULLANILAMAMASINDAN KAYNAKLANAN GENEL, ÖZEL, ARIZİ VEYA SONUÇ OLARAK OLUŞAN ZARARLAR DAHİL OLMAK ÜZERE ZARARLARDAN (BUNLARLA SINIRLI OLMAMAK ÜZERE VERİ KAYBI VEYA VERİLERİN YANLIŞ HALE GETİRİLMESİ VEYA SİZİN VEYA ÜÇÜNCÜ TARAFLARIN ZARARLARI VEYA PROGRAMIN DİĞER PROGRAMLARLA BİRLİKTE ÇALIŞAMAMASI DAHİL) SORUMLU OLMAYACAKTIR, BÖYLE BİR SAHİBE VEYA DİĞER TARAF, BÖYLE BİR OLASILIKTAN HABERDAR EDİLMİŞ OLSA BİLE ZARARLAR.
+
+17. 15 ve 16. Maddelerin Yorumlanması.
+Yukarıda belirtilen garanti reddi ve sorumluluk sınırlaması, kendi şartlarına göre yerel yasal etkiye sahip olamazsa, inceleyen mahkemeler, Programla bağlantılı tüm hukuki sorumluluktan mutlak feragat etmeye en yakın yerel yasayı uygulayacaktır; ancak Programın bir kopyasına ücret karşılığında bir garanti veya sorumluluk üstlenimi eşlik ediyorsa bu geçerli değildir.
+
+ŞARTLAR VE KOŞULLARIN SONU
+
+Bu Şartları Yeni Programlarınıza Nasıl Uygularsınız?
+Yeni bir program geliştiriyorsanız ve bunun toplum için mümkün olan en büyük faydayı sağlamasını istiyorsanız, bunu başarmanın en iyi yolu, herkesin bu koşullar altında yeniden dağıtabileceği ve değiştirebileceği özgür bir yazılım haline getirmektir.
+
+Bunu yapmak için, programa aşağıdaki bildirimleri ekleyin. Garantinin hariç tutulmasını en etkili şekilde belirtmek için bunları her kaynak dosyasının başına eklemek en güvenli yoldur; ve her dosyada en azından "telif hakkı" satırı ve tam bildirimin bulunduğu yere bir işaretçi bulunmalıdır.
+
+    <programın adını ve ne işe yaradığına dair kısa bir fikir veren bir satır.>
+    Telif Hakkı (C) <yıl> <yazarın adı>
+
+    Bu program özgür bir yazılımdır: onu yeniden dağıtabilir ve/veya değiştirebilirsiniz.
+    GNU Genel Kamu Lisansı'nın yayınladığı şartlar uyarınca
+    Özgür Yazılım Vakfı, Lisansın 3. sürümü veya
+    (tercihinize göre) herhangi bir sonraki versiyon.
+
+    Bu program yararlı olacağı umuduyla dağıtılmaktadır.
+    ancak HERHANGİ BİR GARANTİ OLMADAN; hatta ima edilen garanti bile olmaksızın
+    TİCARİ ELVERİŞLİLİK veya BELİRLİ BİR AMACA UYGUNLUK. Bkz.
+    Daha fazla bilgi için GNU Genel Kamu Lisansı'na bakın.
+
+    GNU Genel Kamu Lisansı'nın bir kopyasını almış olmalısınız
+    Bu programla birlikte. Değilse, <https://www.gnu.org/licenses/> adresine bakın.
+Ayrıca elektronik ve kağıt posta yoluyla sizinle nasıl iletişime geçebileceğimize dair bilgileri de ekleyin.
+
+Eğer program terminal etkileşiminde bulunuyorsa, etkileşimli modda başlatıldığında bunun gibi kısa bir bildirim çıktısı vermesini sağlayın:
+
+    <program> Telif Hakkı (C) <yıl> <yazarın adı>
+    Bu program kesinlikle HİÇBİR GARANTİ ile gelmez; detaylar için `show w' yazın.
+    Bu özgür bir yazılımdır ve onu yeniden dağıtabilirsiniz
+    belirli koşullar altında; ayrıntılar için `show c' yazın.
+Varsayımsal `show w' ve `show c' komutları Genel Kamu Lisansı'nın uygun kısımlarını göstermelidir. Elbette, programınızın komutları farklı olabilir; bir GUI arayüzü için bir "hakkında kutusu" kullanırsınız.
+
+Gerekirse, işvereninizden (programcı olarak çalışıyorsanız) veya varsa okulunuzdan program için bir "telif hakkı feragatnamesi" imzalamasını da istemelisiniz. Bu konuda daha fazla bilgi ve GNU GPL'ye nasıl başvurup uyacağınız için < https://www.gnu.org/licenses/ > adresine bakın.
+
+GNU Genel Kamu Lisansı, programınızın özel mülk programlara dahil edilmesine izin vermez. Programınız bir alt program kütüphanesiyse, özel mülk uygulamalarının kütüphaneye bağlanmasına izin vermeyi daha faydalı bulabilirsiniz. Eğer bunu yapmak istiyorsanız, bu Lisans yerine GNU Kısıtlı Genel Kamu Lisansı'nı kullanın. Ancak önce lütfen < https://www.gnu.org/licenses/why-not-lgpl.html > adresini okuyun.

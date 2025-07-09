@@ -1,0 +1,9 @@
+
+
+#Bu yazılım, "Zeus Raw Copy", disk klonlamaya, ya da var olan bir klon (.img) dosyasını bir diske yazmaya yarar. Disk yedeği almada kullanıcının işine yarayacaktır. 
+
+#BU YAZILIM HİÇBİR GARANTİ GETİRMEZ! Bilgisayarınızda oluşabilecek hiçbir sorundan programın yazarı sorumlu tutulamaz. 
+
+#Bu yazılım, GNU GPL v3 lisansı altındadır. Yazılımın dağıtılması, kopyalanması, satışa çıkarılması gibi birçok faaliyet bu lisans koşullarına bağlıdır. 
+
+#Telif hakkı: @Zeus, forum.pardus.org.tr üyesi.
