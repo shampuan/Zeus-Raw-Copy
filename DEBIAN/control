@@ -1,8 +1,7 @@
 Package: zeus-raw-copy
-Version: 1.0
+Version: 1.0.1
 Section: utils
 Priority: optional
 Architecture: all
 Maintainer: zeus <https://github.com/shampuan/>
-Description: Zeus Raw Copy - Disk klonlama ve yedekleme aracı
- Disk klonlama ve imaj yazma işlemleri için PyQt5 arayüzlü araç.
+Description: Zeus Raw Copy – Ham disk kopyalama aracı

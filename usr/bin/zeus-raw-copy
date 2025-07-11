@@ -1,2 +1,3 @@
-#!/bin/bash
-python3 /usr/share/zeus-raw-copy/zeus_raw_copy.py
+#!/usr/bin/env python3
+import os
+os.system("python3 /usr/share/zeus-raw-copy/zeus_raw_copy.py")

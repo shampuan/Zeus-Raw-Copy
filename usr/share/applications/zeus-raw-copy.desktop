@@ -1,10 +1,6 @@
 [Desktop Entry]
-Version=1.0
-Type=Application
 Name=Zeus Raw Copy
-Comment=Disk klonlama ve imaj yazma işlemleri için PyQt5 arayüzlü araç
-Exec=python3 /usr/share/zeus-raw-copy/zeus_raw_copy.py
-Icon=/usr/share/zeus-raw-copy/HDD.png
-Terminal=false
-Categories=Utility;System;
-StartupNotify=true
+Exec=zeus-raw-copy
+Icon=hdd
+Type=Application
+Categories=Utility;

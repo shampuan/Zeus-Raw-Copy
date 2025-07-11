@@ -5,14 +5,16 @@ import platform
 import subprocess
 import signal
 import time
+import re
 
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget,
     QVBoxLayout, QHBoxLayout,
     QLabel, QComboBox, QPushButton, QRadioButton,
     QButtonGroup, QLineEdit, QFileDialog, QMessageBox, QFrame, QSizePolicy
+    # QProgressBar artık kullanılmıyor
 )
-from PyQt5.QtCore import Qt, QThread, pyqtSignal
+from PyQt5.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt5.QtGui import QPixmap
 
 # Ayar dosyası yolu (kullanıcının ana dizininde gizli dosya)
@@ -49,8 +51,8 @@ def run_privileged_command(command_parts, error_message):
             process = subprocess.Popen(cmd,
                                        stdout=subprocess.PIPE,
                                        stderr=subprocess.PIPE,
-                                       bufsize=1,
-                                       universal_newlines=True)
+                                       bufsize=1, # Line-buffered output
+                                       universal_newlines=True) # Text mode for line reading
             return process
         except FileNotFoundError as e:
             last_error = f"Komut bulunamadı: {e.filename}. Deneniyor: {' '.join(cmd)}"
@@ -66,6 +68,7 @@ class CloningWorker(QThread):
     finished = pyqtSignal(int)
     error = pyqtSignal(str)
     stopped = pyqtSignal()
+    progress_update = pyqtSignal(str) # dd'nin ham çıktısını gönderecek
 
     def __init__(self, source, target):
         super().__init__()
@@ -73,38 +76,63 @@ class CloningWorker(QThread):
         self.target = target
         self.process = None
         self._stop_requested = False
+        self.stderr_buffer = "" # stderr çıktısını biriktirmek için
 
     def run(self):
-        command_parts = ['/usr/bin/dd', f'if={self.source}', f'of={self.target}', 'bs=4M', 'conv=sync,noerror']
+        # bs=4M, daha hızlı kopyalama için blok boyutunu artırır.
+        # conv=sync,noerror, okuma hatalarını görmezden gelip senkronize yazar.
+        # status=progress, dd'nin ilerleme çıktısı vermesini sağlar.
+        command_parts = ['/usr/bin/dd', f'if={self.source}', f'of={self.target}', 'bs=4M', 'conv=sync,noerror', 'status=progress']
 
         try:
+            # Yetkili komutu çalıştır
             self.process = run_privileged_command(command_parts, "Disk işlemi için yetki yükseltilemedi.")
 
-            while self.process.poll() is None:
+            while True:
                 if self._stop_requested:
-                    if platform.system() in ("Linux", "Darwin"):
-                        self.process.send_signal(signal.SIGINT)
-                    else:
-                        self.process.terminate()
-
-                    self.process.wait()
-                    self.stopped.emit()
+                    if self.process:
+                        if platform.system() in ("Linux", "Darwin"):
+                            self.process.send_signal(signal.SIGINT) # Ctrl+C gibi sinyal gönder
+                        else:
+                            self.process.terminate() # Windows için işlemi sonlandır
+                        self.process.wait(timeout=5) # İşlemin bitmesini bekle
+                    self.stopped.emit() # Durduruldu sinyalini gönder
                     return
 
-                time.sleep(0.5)
+                # stderr'den mevcut tüm veriyi oku
+                # Küçük bir okuma boyutu kullanmak, daha sık güncelleme yapmamıza yardımcı olabilir
+                output = self.process.stderr.read(1) 
+                if output:
+                    self.stderr_buffer += output
+                    # Eğer '\r' veya '\n' karakteri gördüysek, satırı işle
+                    if output == '\r' or output == '\n':
+                        if self.stderr_buffer.strip(): # Boş satırları yoksay
+                            self.progress_update.emit(self.stderr_buffer.strip())
+                        self.stderr_buffer = "" # Tamponu sıfırla
+                else:
+                    # Karakter gelmediyse ve süreç bittiyse döngüden çık
+                    if self.process.poll() is not None:
+                        # Kalan çıktıyı da işleyelim (genellikle son satırda \n olmayabilir)
+                        if self.stderr_buffer.strip():
+                            self.progress_update.emit(self.stderr_buffer.strip())
+                        break
+                
+                time.sleep(0.01) # GUI'nin yanıt verebilir kalması için kısa bir bekleme
 
             return_code = self.process.returncode
             if return_code == 0:
-                self.finished.emit(return_code)
+                self.finished.emit(return_code) # Başarılı dönüş kodu
             elif return_code < 0 and abs(return_code) == signal.SIGINT:
-                self.stopped.emit()
+                self.stopped.emit() # Kullanıcı durdurdu
             else:
-                stderr_output = self.process.stderr.read()
-                self.error.emit(f"İşlem hata ile sona erdi (Kod: {return_code}).\nHata Mesajı: {stderr_output.strip()}")
+                # dd'nin son hata mesajını al
+                stderr_final_output = self.process.stderr.read()
+                full_error_message = f"İşlem hata ile sona erdi (Kod: {return_code}).\nHata Mesajı: {stderr_final_output.strip() or self.stderr_buffer.strip()}"
+                self.error.emit(full_error_message) # Hata sinyalini gönder
         except Exception as e:
             self.error.emit(f"Disk işlemi başlatılırken beklenmedik bir hata oluştu: {e}")
         finally:
-            self.process = None
+            self.process = None # Süreci temizle
 
     def stop(self):
         self._stop_requested = True
@@ -113,11 +141,16 @@ class ZeusRawCopyApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("zeus raw copy")
-        self.setFixedSize(720, 560)
+        # self.setFixedSize(720, 560) # Bu satırı yorum satırı yaptık veya sildik
+        
+        # Pencerenin yeniden boyutlandırılabilir olmasını sağlıyoruz
+        # Ve amblemin görünürlüğünü sağlamak için minimum yüksekliği arttırıyoruz.
+        self.setMinimumSize(720, 600) # Genişlik 720, minimum yükseklik 600
 
         self.cloning_worker = None
         self.last_save_directory = ORIGINAL_USER_HOME
         self.last_img_open_directory = ORIGINAL_USER_HOME
+        self.total_bytes_to_copy = 0
 
         self.setup_ui()
         self.load_settings()
@@ -127,6 +160,7 @@ class ZeusRawCopyApp(QMainWindow):
         self.toggle_input_fields()
 
         QApplication.instance().aboutToQuit.connect(self.on_exit)
+
 
     def setup_ui(self):
         central_widget = QWidget()
@@ -257,7 +291,12 @@ class ZeusRawCopyApp(QMainWindow):
         main_layout.addWidget(target_frame)
         main_layout.addStretch()
 
-        # Butonlar eşit boyutta ve yan yana
+        # QProgressBar kaldırıldı, sadece status_label kaldı
+        self.status_label = QLabel("Hazır.")
+        self.status_label.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(self.status_label)
+        main_layout.addSpacing(15)
+
         button_layout = QHBoxLayout()
         button_layout.setSpacing(10)
 
@@ -317,8 +356,9 @@ class ZeusRawCopyApp(QMainWindow):
 
         command_parts = ['/usr/bin/lsblk', '-dpn', '-o', 'NAME,SIZE,MODEL']
         try:
+            # Popen ile yetkili komutu çalıştırın
             process = run_privileged_command(command_parts, "Disk listesini almak için yetki yükseltilemedi.")
-            stdout, stderr = process.communicate(timeout=10)
+            stdout, stderr = process.communicate(timeout=10) # timeout ekleyelim
 
             if process.returncode != 0:
                 QMessageBox.warning(self, "Hata", f"Disk listesi alınırken hata oluştu:\n{stderr.strip()}")
@@ -332,15 +372,15 @@ class ZeusRawCopyApp(QMainWindow):
                     name, size, model = parts
                 elif len(parts) == 2:
                     name, size = parts
-                    model = ""
+                    model = "" # Modeli boş bırak
                 else:
-                    continue
+                    continue # Geçersiz satırları atla
                 if not name.startswith('/dev/'):
                     name = '/dev/' + name
                 disks.append({'name': name, 'size': size, 'model': model})
             return disks
         except Exception as e:
-            QMessageBox.warning(self, "Hata", f"Disk listesi alınırken hata: {e}")
+            QMessageBox.critical(self, "Hata", f"Disk listesi alınırken beklenmedik bir hata oluştu: {e}")
             return []
 
     def populate_disk_comboboxes(self):
@@ -356,21 +396,17 @@ class ZeusRawCopyApp(QMainWindow):
         action = self.action_type_group.checkedId()
         # 1: disk->img, 2: disk->disk, 3: img->disk
 
-        # Kaynak disk sadece disk->img ve disk->disk
         self.source_disk_combobox.setEnabled(action in (1, 2))
         self.source_disk_label.setEnabled(action in (1, 2))
 
-        # Kaynak imaj dosyası sadece img->disk
         self.source_img_lineedit.setEnabled(action == 3)
         self.source_img_label.setEnabled(action == 3)
         self.source_img_browse_button.setEnabled(action == 3)
 
-        # Hedef imaj dosyası sadece disk->img
         self.target_img_lineedit.setEnabled(action == 1)
         self.target_img_label.setEnabled(action == 1)
         self.target_img_browse_button.setEnabled(action == 1)
 
-        # Hedef disk sadece disk->disk ve img->disk
         self.target_disk_combobox.setEnabled(action in (2, 3))
         self.target_disk_label.setEnabled(action in (2, 3))
 
@@ -383,17 +419,15 @@ class ZeusRawCopyApp(QMainWindow):
     def select_target_image_file(self):
         path, _ = QFileDialog.getSaveFileName(self, "Kaydedilecek İmaj Dosyasını Seç", self.last_save_directory, "İmaj Dosyaları (*.img);;Tüm Dosyalar (*)")
         if path:
-            if not path.endswith('.img'):
+            if not path.lower().endswith('.img'):
                 path += '.img'
             self.target_img_lineedit.setText(path)
             self.last_save_directory = os.path.dirname(path)
 
     def on_source_disk_selected(self, index):
-        # Gerekirse burada işlem yapılabilir
         pass
 
     def on_target_disk_selected(self, index):
-        # Gerekirse burada işlem yapılabilir
         pass
 
     def start_operation(self):
@@ -402,8 +436,11 @@ class ZeusRawCopyApp(QMainWindow):
             QMessageBox.warning(self, "Uyarı", "Başka bir işlem zaten devam ediyor.")
             return
 
-        if action == 1:
-            # Disk -> img
+        source = None
+        target = None
+        self.total_bytes_to_copy = 0 # Her yeni işlemde sıfırla (artık kullanılmasa da durabilir)
+
+        if action == 1: # Disk -> img
             source = self.source_disk_combobox.currentData()
             target = self.target_img_lineedit.text().strip()
             if not source:
@@ -412,8 +449,15 @@ class ZeusRawCopyApp(QMainWindow):
             if not target:
                 QMessageBox.warning(self, "Hata", "Hedef imaj dosyası seçin.")
                 return
-        elif action == 2:
-            # Disk -> disk
+            # Disk boyutunu almak için: (artık çubuk yok ama bilgi için tutabiliriz)
+            for disk in self.all_disks_info:
+                if disk['name'] == source:
+                    self.total_bytes_to_copy = self.parse_size_to_bytes(disk['size'])
+                    break
+            if self.total_bytes_to_copy == 0:
+                QMessageBox.warning(self, "Hata", "Kaynak disk boyutu belirlenemedi veya geçersiz.")
+                return
+        elif action == 2: # Disk -> disk
             source = self.source_disk_combobox.currentData()
             target = self.target_disk_combobox.currentData()
             if not source:
@@ -425,8 +469,15 @@ class ZeusRawCopyApp(QMainWindow):
             if source == target:
                 QMessageBox.warning(self, "Hata", "Kaynak ve hedef disk aynı olamaz.")
                 return
-        else:
-            # Img -> disk
+            # Disk boyutunu almak için:
+            for disk in self.all_disks_info:
+                if disk['name'] == source:
+                    self.total_bytes_to_copy = self.parse_size_to_bytes(disk['size'])
+                    break
+            if self.total_bytes_to_copy == 0:
+                QMessageBox.warning(self, "Hata", "Kaynak disk boyutu belirlenemedi veya geçersiz.")
+                return
+        else: # Img -> disk
             source = self.source_img_lineedit.text().strip()
             target = self.target_disk_combobox.currentData()
             if not source or not os.path.isfile(source):
@@ -435,38 +486,85 @@ class ZeusRawCopyApp(QMainWindow):
             if not target:
                 QMessageBox.warning(self, "Hata", "Hedef disk seçin.")
                 return
+            try:
+                self.total_bytes_to_copy = os.path.getsize(source)
+            except OSError as e:
+                QMessageBox.warning(self, "Hata", f"Kaynak imaj dosyasının boyutu alınamadı: {e}")
+                return
 
-        # Onay penceresi
-        confirm_text = f"Seçiminiz:\nKaynak: {source}\nHedef: {target}\n\nDevam etmek istiyor musunuz?"
+        confirm_text = f"Seçiminiz:\nKaynak: {source}\nHedef: {target}\n\n<b>!!! DİKKAT: Hedef diskin/dosyanın tüm içeriği silinecek ve üzerine yazılacaktır. !!!</b>\n\nDevam etmek istiyor musunuz?"
         reply = QMessageBox.question(self, "Onayla", confirm_text, QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply != QMessageBox.Yes:
             return
 
         self.start_button.setEnabled(False)
         self.stop_button.setEnabled(True)
+        self.status_label.setText("İşlem başlatılıyor...") # Sadece durum etiketini güncelle
 
         self.cloning_worker = CloningWorker(source, target)
         self.cloning_worker.finished.connect(self.on_clone_finished)
         self.cloning_worker.error.connect(self.on_clone_error)
         self.cloning_worker.stopped.connect(self.on_clone_stopped)
+        self.cloning_worker.progress_update.connect(self.update_progress) # Sadece metin güncellenecek
         self.cloning_worker.start()
+
+    def parse_size_to_bytes(self, size_str):
+        size_str = size_str.strip().upper()
+        if not size_str:
+            return 0
+
+        # Birimden önce sayısal kısmı bul
+        match = re.match(r'(\d+\.?\d*)\s*([KMGTPE]?B)?', size_str)
+        if not match:
+            return 0
+
+        num = float(match.group(1))
+        unit = match.group(2) if match.group(2) else ''
+
+        # Byte, Kilobyte, Megabyte, Gigabyte, Terabyte, Petabyte, Exabyte
+        # lsblk genellikle K, M, G, T, P, E kullanır.
+        if 'E' in unit:
+            return int(num * (1024**6))
+        elif 'P' in unit:
+            return int(num * (1024**5))
+        elif 'T' in unit:
+            return int(num * (1024**4))
+        elif 'G' in unit:
+            return int(num * (1024**3))
+        elif 'M' in unit:
+            return int(num * (1024**2))
+        elif 'K' in unit:
+            return int(num * 1024)
+        elif 'B' in unit or not unit: # 'B' varsa veya birim yoksa (sadece sayı)
+            return int(num)
+        return 0
+
+    def update_progress(self, raw_output):
+        # Sadece ham çıktıyı durum etiketinde göster
+        self.status_label.setText(f"İşlem sürüyor: {raw_output}")
 
     def stop_cloning(self):
         if self.cloning_worker and self.cloning_worker.isRunning():
-            self.cloning_worker.stop()
-            self.stop_button.setEnabled(False)
+            reply = QMessageBox.question(self, "İşlemi Durdur", "İşlemi durdurmak istediğinize emin misiniz? Bu veri kaybına neden olabilir ve hedef disk kararsız durumda kalabilir.", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                self.cloning_worker.stop()
+                self.stop_button.setEnabled(False)
+                self.status_label.setText("İşlem durduruluyor...") # Sadece durum etiketini güncelle
 
     def on_clone_finished(self, code):
+        self.status_label.setText("İşlem başarıyla tamamlandı.") # Sadece durum etiketini güncelle
         QMessageBox.information(self, "Başarılı", "İşlem başarıyla tamamlandı.")
         self.start_button.setEnabled(True)
         self.stop_button.setEnabled(False)
 
     def on_clone_error(self, message):
+        self.status_label.setText(f"Hata: {message}") # Sadece durum etiketini güncelle
         QMessageBox.critical(self, "Hata", f"İşlem sırasında hata oluştu:\n{message}")
         self.start_button.setEnabled(True)
         self.stop_button.setEnabled(False)
 
     def on_clone_stopped(self):
+        self.status_label.setText("İşlem kullanıcı tarafından durduruldu.") # Sadece durum etiketini güncelle
         QMessageBox.information(self, "Durduruldu", "İşlem kullanıcı tarafından durduruldu.")
         self.start_button.setEnabled(True)
         self.stop_button.setEnabled(False)
@@ -485,7 +583,7 @@ class ZeusRawCopyApp(QMainWindow):
         self.save_settings()
         if self.cloning_worker and self.cloning_worker.isRunning():
             self.cloning_worker.stop()
-            self.cloning_worker.wait(2000)
+            self.cloning_worker.wait(2000) # İş parçacığının bitmesini bekle
 
 def main():
     app = QApplication(sys.argv)
@@ -495,4 +593,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
