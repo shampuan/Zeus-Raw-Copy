@@ -1,7 +1,0 @@
-Package: zeus-raw-copy
-Version: 1.0.1
-Section: utils
-Priority: optional
-Architecture: all
-Maintainer: zeus <https://github.com/shampuan/>
-Description: Zeus Raw Copy – Ham disk kopyalama aracı
